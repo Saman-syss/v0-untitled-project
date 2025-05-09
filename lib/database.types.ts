@@ -1,0 +1,235 @@
+export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
+
+export interface Database {
+  public: {
+    Tables: {
+      profiles: {
+        Row: {
+          id: string
+          full_name: string | null
+          avatar_url: string | null
+          role: "student" | "teacher" | "admin" | "super_admin"
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          full_name?: string | null
+          avatar_url?: string | null
+          role?: "student" | "teacher" | "admin" | "super_admin"
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          full_name?: string | null
+          avatar_url?: string | null
+          role?: "student" | "teacher" | "admin" | "super_admin"
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      subjects: {
+        Row: {
+          id: string
+          name: string
+          description: string | null
+          icon: string | null
+          slug: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          description?: string | null
+          icon?: string | null
+          slug: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          description?: string | null
+          icon?: string | null
+          slug?: string
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      topics: {
+        Row: {
+          id: string
+          subject_id: string
+          name: string
+          description: string | null
+          order_number: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          subject_id: string
+          name: string
+          description?: string | null
+          order_number: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          subject_id?: string
+          name?: string
+          description?: string | null
+          order_number?: number
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      resources: {
+        Row: {
+          id: string
+          title: string
+          description: string | null
+          type: "note" | "video" | "practice"
+          topic_id: string
+          content_url: string | null
+          thumbnail_url: string | null
+          file_type: string | null
+          file_size: number | null
+          duration: number | null
+          view_count: number
+          download_count: number
+          created_by: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          description?: string | null
+          type: "note" | "video" | "practice"
+          topic_id: string
+          content_url?: string | null
+          thumbnail_url?: string | null
+          file_type?: string | null
+          file_size?: number | null
+          duration?: number | null
+          view_count?: number
+          download_count?: number
+          created_by: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          description?: string | null
+          type?: "note" | "video" | "practice"
+          topic_id?: string
+          content_url?: string | null
+          thumbnail_url?: string | null
+          file_type?: string | null
+          file_size?: number | null
+          duration?: number | null
+          view_count?: number
+          download_count?: number
+          created_by?: string
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      practice_problems: {
+        Row: {
+          id: string
+          resource_id: string
+          question: string
+          solution: string
+          order_number: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          resource_id: string
+          question: string
+          solution: string
+          order_number: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          resource_id?: string
+          question?: string
+          solution?: string
+          order_number?: number
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      user_progress: {
+        Row: {
+          id: string
+          user_id: string
+          resource_id: string
+          progress_percentage: number
+          completed: boolean
+          last_accessed: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          resource_id: string
+          progress_percentage?: number
+          completed?: boolean
+          last_accessed?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          resource_id?: string
+          progress_percentage?: number
+          completed?: boolean
+          last_accessed?: string
+          created_at?: string
+          updated_at?: string
+        }
+      }
+      bookmarks: {
+        Row: {
+          id: string
+          user_id: string
+          resource_id: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          resource_id: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          resource_id?: string
+          created_at?: string
+        }
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      [_ in never]: never
+    }
+  }
+}
